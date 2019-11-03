@@ -30,7 +30,6 @@ class AnnotationTransform {
   }
 
   createAnnotation(raw) {
-
     let name = null;
     let params = null;
     let attributes = [];
@@ -38,17 +37,11 @@ class AnnotationTransform {
       let matches = raw.match(annotationWithParamsPattern);
       name = matches[1];
       params = matches[2];
+      var data = eval(`({${params}})`);
 
-      let attrMatches = params.match(/([^,]*):+([^,]*)/gm)
-
-      for (var i = 0; i < attrMatches.length; i++) {
-        let item = attrMatches[i].split(":")
-        let attrName = item[0].trim();
-        let attrValue = item[1].trim();
-        //attributes[attributes.length] = new AnnotationParam({name: attrName, value: eval(attrValue)});
-        attributes[attrName] = eval(attrValue)
-
-      }
+      Object.keys(data).forEach((name, index, array)=>{
+        attributes[name] = data[name]
+      })
 
     }
     else{

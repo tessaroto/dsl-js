@@ -1,6 +1,6 @@
 {
   "name": "dsl-js",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tessaroto/dsl-js.git"
-  }
+  },
+  "files": [
+    "models",
+    "transforms",
+    "utils",
+    "entityBuilder.js",
+    "entityValidation.js",
+    "index.js"
+  ]
 }
